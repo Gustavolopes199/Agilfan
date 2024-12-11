@@ -1,7 +1,6 @@
 import { AppDataSource } from '../data-source';
 import { Repository } from 'typeorm';
-import { Usuario } from '../entity/Usuario';
-import bcrypt from '@node-rs/bcrypt'; 
+import { Usuario } from '../entity/Usuario'; 
 
 class UsuarioService {
   private usuarioRepository: Repository<Usuario>;
@@ -29,9 +28,7 @@ class UsuarioService {
     }
 
     
-    const saltRounds = 10;
-    const senhaHashed = await bcrypt.hash(dados.password, saltRounds);
-    dados.password = senhaHashed;
+
 
     const novoUsuario = this.usuarioRepository.create(dados);
     return this.usuarioRepository.save(novoUsuario);
@@ -46,8 +43,8 @@ class UsuarioService {
 
     
     if (dados.password) {
-      const saltRounds = 10;
-      dados.password = await bcrypt.hash(dados.password, saltRounds);
+
+ 
     }
 
     Object.assign(usuarioExistente, dados);
