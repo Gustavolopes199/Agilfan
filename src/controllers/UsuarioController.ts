@@ -17,7 +17,7 @@ class UsuarioController {
       const usuario = await UsuarioService.obterUsuario(matricula);
       if (!usuario) {
         res.status(404).json({ mensagem: 'Usuário não encontrado' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.json(usuario);
     } catch (error: any) {
@@ -40,7 +40,7 @@ class UsuarioController {
       const usuarioAtualizado = await UsuarioService.atualizarUsuario(matricula, req.body);
       if (!usuarioAtualizado) {
         res.status(404).json({ mensagem: 'Usuário não encontrado' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.json(usuarioAtualizado);
     } catch (error: any) {
@@ -54,7 +54,7 @@ class UsuarioController {
       const sucesso = await UsuarioService.deletarUsuario(matricula);
       if (!sucesso) {
         res.status(404).json({ mensagem: 'Usuário não encontrado' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.status(204).send();
     } catch (error: any) {

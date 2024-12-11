@@ -17,7 +17,7 @@ class PagamentoController {
       const pagamento = await PagamentoService.obterPagamento(idPagamento);
       if (!pagamento) {
         res.status(404).json({ mensagem: 'Pagamento não encontrado' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.json(pagamento);
     } catch (error: any) {
@@ -40,7 +40,7 @@ class PagamentoController {
       const pagamentoAtualizado = await PagamentoService.atualizarPagamento(idPagamento, req.body);
       if (!pagamentoAtualizado) {
         res.status(404).json({ mensagem: 'Pagamento não encontrado' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.json(pagamentoAtualizado);
     } catch (error: any) {
@@ -54,7 +54,7 @@ class PagamentoController {
       const sucesso = await PagamentoService.deletarPagamento(idPagamento);
       if (!sucesso) {
         res.status(404).json({ mensagem: 'Pagamento não encontrado' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.status(204).send();
     } catch (error: any) {

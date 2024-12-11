@@ -17,7 +17,7 @@ class TurmaController {
       const turma = await TurmaService.obterTurma(idTurma);
       if (!turma) {
         res.status(404).json({ mensagem: 'Turma não encontrada' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.json(turma);
     } catch (error: any) {
@@ -40,7 +40,7 @@ class TurmaController {
       const turmaAtualizada = await TurmaService.atualizarTurma(idTurma, req.body);
       if (!turmaAtualizada) {
         res.status(404).json({ mensagem: 'Turma não encontrada' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.json(turmaAtualizada);
     } catch (error: any) {
@@ -54,7 +54,7 @@ class TurmaController {
       const sucesso = await TurmaService.deletarTurma(idTurma);
       if (!sucesso) {
         res.status(404).json({ mensagem: 'Turma não encontrada' });
-        return; // Retorna após enviar a resposta de erro
+        return; 
       }
       res.status(204).send();
     } catch (error: any) {
