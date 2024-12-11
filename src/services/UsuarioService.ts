@@ -3,7 +3,7 @@
 import { AppDataSource } from '../data-source';
 import { Repository } from 'typeorm';
 import { Usuario } from '../entity/Usuario';
-import bcrypt from 'bcrypt'; 
+import bcrypt from 'bcryptjs'; 
 
 class UsuarioService {
   private usuarioRepository: Repository<Usuario>;
