@@ -1,7 +1,7 @@
 import { AppDataSource } from '../data-source';
 import { Repository } from 'typeorm';
 import { Usuario } from '../entity/Usuario';
-import bcrypt from 'bcryptjs'; 
+import bcrypt from '@node-rs/bcrypt'; 
 
 class UsuarioService {
   private usuarioRepository: Repository<Usuario>;
