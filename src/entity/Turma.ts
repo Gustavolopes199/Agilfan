@@ -1,5 +1,6 @@
 import { Entity, PrimaryColumn, Column, OneToMany } from 'typeorm';
 import { Pagamento } from './Pagamento';
+import { v4 as uuid} from 'uuid'
 
 @Entity('turmas')
 export class Turma {
@@ -23,4 +24,8 @@ export class Turma {
 
   @OneToMany(() => Pagamento, (pagamento) => pagamento.turma)
   pagamentos!: Pagamento[];
+
+  constructor(){
+    this.idTurma = uuid();
+  }
 }
