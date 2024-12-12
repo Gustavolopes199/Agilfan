@@ -3,6 +3,7 @@ import cors from 'cors';
 import usuarioRoutes from './routes/usuarioRoutes';
 import pagamentoRoutes from './routes/pagamentosRoutes';
 import turmaRoutes from './routes/turmaRoutes';
+import { AppDataSource } from "./data-source"
 
 const app = express();
 
@@ -16,6 +17,11 @@ app.use('/turma', turmaRoutes);
 
 const PORT = process.env.PORT || 3001;
 
+AppDataSource.initialize().then()
+  console.log("Banco conectado");
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
+
+

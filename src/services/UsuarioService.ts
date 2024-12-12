@@ -11,7 +11,13 @@ class UsuarioService {
 
   
   public async listarUsuarios(): Promise<Usuario[]> {
-    return this.usuarioRepository.find();
+    console.log("testes");
+      const usuarios = await this.usuarioRepository.find();
+      if (!usuarios){
+        throw new Error('Lista de usuários vazia');
+      }
+
+      return usuarios;
   }
 
   

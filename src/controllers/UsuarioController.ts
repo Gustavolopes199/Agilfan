@@ -2,7 +2,7 @@ import { Request, Response, RequestHandler } from 'express';
 import UsuarioService from '../services/UsuarioService';
 
 class UsuarioController {
-  static listarUsuarios: RequestHandler = async (req, res) => {
+   listarUsuarios: RequestHandler = async (req, res) => {
     try {
       const usuarios = await UsuarioService.listarUsuarios();
       res.json(usuarios);
@@ -11,7 +11,7 @@ class UsuarioController {
     }
   };
 
-  static obterUsuario: RequestHandler = async (req, res) => {
+   obterUsuario: RequestHandler = async (req, res) => {
     try {
       const { matricula } = req.params;
       const usuario = await UsuarioService.obterUsuario(matricula);
@@ -25,7 +25,7 @@ class UsuarioController {
     }
   };
 
-  static criarUsuario: RequestHandler = async (req, res) => {
+   criarUsuario: RequestHandler = async (req, res) => {
     try {
       const usuario = await UsuarioService.criarUsuario(req.body);
       res.status(201).json(usuario);
@@ -34,7 +34,7 @@ class UsuarioController {
     }
   };
 
-  static atualizarUsuario: RequestHandler = async (req, res) => {
+   atualizarUsuario: RequestHandler = async (req, res) => {
     try {
       const { matricula } = req.params;
       const usuarioAtualizado = await UsuarioService.atualizarUsuario(matricula, req.body);
@@ -48,7 +48,7 @@ class UsuarioController {
     }
   };
 
-  static deletarUsuario: RequestHandler = async (req, res) => {
+   deletarUsuario: RequestHandler = async (req, res) => {
     try {
       const { matricula } = req.params;
       const sucesso = await UsuarioService.deletarUsuario(matricula);
